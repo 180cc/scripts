@@ -134,7 +134,7 @@ echo "Installing Docker on CentOS 7" ; yum install -y yum-utils && sudo yum-conf
 	 echo "    # for more information."
 	 echo "    include /etc/nginx/conf.d/*.conf;"
  	 echo "    include /etc/nginx/sites-enabled/*;"
-	 echo "}" ) > /etc/nginx/nginx.conf && service nginx configtest && service nginx restart &&; echo "Reverse proxy installed. . ."; 
+	 echo "}" ) > /etc/nginx/nginx.conf && service nginx configtest && service nginx restart && echo "Reverse proxy installed. . ."; 
 	 echo "Press a key. . ." ; read ;;
 
       6) #ADMIN HOME FOLDER BACKUP
