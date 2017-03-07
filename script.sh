@@ -19,12 +19,12 @@ while :
     read yourch
     case $yourch in
       1) #SSH KEY AUTHENTICATION
-	 mkdir ~/.ssh & touch ~/.ssh/authorized_keys && touch ~/.ssh/authorized_keys && 
+	 mkdir ~/.ssh &
 
 	 echo -e "Paste Public Key: "
 	 read pubkey && 
 	 (
-	 echo $pubkey) > ~/.ssh/authorized_keys &&
+	 echo $pubkey) > ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys && 
 
 	 (
 	 echo "Port 22001"
@@ -43,7 +43,7 @@ while :
 	 echo "AcceptEnv XMODIFIERS"
 	 echo "X11Forwarding yes"
 	 echo "Subsystem	sftp	/usr/libexec/openssh/sftp-server") > /etc/ssh/sshd_config && 
-	 chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys && service sshd restart && echo "Key uploaded and sshd_config updated ..."; 
+	 systemctl restart sshd && echo "Key uploaded and sshd_config updated ..."; 
 	 echo "Press a key. . ." ; read ;;
 
       2) #UPGRADE CENTOS SYSTEM
